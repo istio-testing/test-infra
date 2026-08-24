@@ -39,7 +39,7 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-prerelease-private_credentials","project":"istio-testing","env":"CF_PRERELEASE_CREDENTIALS"},{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: gcr.io/istio-testing/build-tools:release-1.31-7f929a842d4a0cb482c9d18a9a369b177d51a555
+        image: gcr.io/istio-testing/build-tools:release-1.31-24b758cde6f063fbe456b70f537ca5a464e4079a
         name: ""
         resources:
           limits:
@@ -98,7 +98,7 @@ postsubmits:
           value: "0"
         - name: GOMAXPROCS
           value: "3"
-        image: gcr.io/istio-testing/build-tools:release-1.31-7f929a842d4a0cb482c9d18a9a369b177d51a555
+        image: gcr.io/istio-testing/build-tools:release-1.31-24b758cde6f063fbe456b70f537ca5a464e4079a
         name: ""
         resources:
           limits:
@@ -154,7 +154,7 @@ postsubmits:
           value: "3"
         - name: VERSION
           value: "1.31"
-        image: gcr.io/istio-testing/build-tools:release-1.31-7f929a842d4a0cb482c9d18a9a369b177d51a555
+        image: gcr.io/istio-testing/build-tools:release-1.31-24b758cde6f063fbe456b70f537ca5a464e4079a
         name: ""
         resources:
           limits:
@@ -208,7 +208,7 @@ postsubmits:
           value: "0"
         - name: GOMAXPROCS
           value: "3"
-        image: gcr.io/istio-testing/build-tools:release-1.31-7f929a842d4a0cb482c9d18a9a369b177d51a555
+        image: gcr.io/istio-testing/build-tools:release-1.31-24b758cde6f063fbe456b70f537ca5a464e4079a
         name: ""
         resources:
           limits:
@@ -276,7 +276,7 @@ presubmits:
           value: istio-prerelease-private/prerelease
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-prerelease-private_credentials","project":"istio-testing","env":"CF_PRERELEASE_CREDENTIALS"}]'
-        image: gcr.io/istio-testing/build-tools:release-1.31-7f929a842d4a0cb482c9d18a9a369b177d51a555
+        image: gcr.io/istio-testing/build-tools:release-1.31-24b758cde6f063fbe456b70f537ca5a464e4079a
         name: ""
         resources:
           limits:
@@ -322,7 +322,7 @@ presubmits:
           value: "0"
         - name: GOMAXPROCS
           value: "3"
-        image: gcr.io/istio-testing/build-tools:release-1.31-7f929a842d4a0cb482c9d18a9a369b177d51a555
+        image: gcr.io/istio-testing/build-tools:release-1.31-24b758cde6f063fbe456b70f537ca5a464e4079a
         name: ""
         resources:
           limits:
@@ -381,7 +381,7 @@ presubmits:
           value: "3"
         - name: VERSION
           value: "1.31"
-        image: gcr.io/istio-testing/build-tools:release-1.31-7f929a842d4a0cb482c9d18a9a369b177d51a555
+        image: gcr.io/istio-testing/build-tools:release-1.31-24b758cde6f063fbe456b70f537ca5a464e4079a
         name: ""
         resources:
           limits:
@@ -438,7 +438,7 @@ presubmits:
           value: "0"
         - name: GOMAXPROCS
           value: "3"
-        image: gcr.io/istio-testing/build-tools:release-1.31-7f929a842d4a0cb482c9d18a9a369b177d51a555
+        image: gcr.io/istio-testing/build-tools:release-1.31-24b758cde6f063fbe456b70f537ca5a464e4079a
         name: ""
         resources:
           limits:
