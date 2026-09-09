@@ -23,7 +23,7 @@ postsubmits:
           value: "3"
         - name: ISTIO_ENVOY_BASE_URL
           value: https://storage.googleapis.com/istio-build-private/proxy
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -68,7 +68,7 @@ postsubmits:
           value: "3"
         - name: ISTIO_ENVOY_BASE_URL
           value: https://storage.googleapis.com/istio-build-private/proxy
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -117,7 +117,7 @@ presubmits:
           value: istio-build-private/dev
         - name: GOMAXPROCS
           value: "3"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -165,7 +165,7 @@ presubmits:
           value: istio-build-private/dev
         - name: GOMAXPROCS
           value: "3"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
