@@ -37,14 +37,14 @@ periodics:
         value: '[{"secret":"github_istio-testing_pusher","project":"istio-prow-build","env":"GH_TOKEN"}]'
       - name: GOMAXPROCS
         value: "8"
-      image: registry.istio.io/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+      image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
       name: ""
       resources:
         limits:
           cpu: "8"
           memory: 24Gi
         requests:
-          cpu: "5"
+          cpu: "3"
           memory: 3Gi
       securityContext:
         privileged: true
@@ -99,14 +99,14 @@ periodics:
         value: '[{"secret":"github_istio-testing_pusher","project":"istio-prow-build","env":"GH_TOKEN"}]'
       - name: GOMAXPROCS
         value: "8"
-      image: registry.istio.io/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+      image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
       name: ""
       resources:
         limits:
           cpu: "8"
           memory: 24Gi
         requests:
-          cpu: "5"
+          cpu: "3"
           memory: 3Gi
       securityContext:
         privileged: true
@@ -151,14 +151,14 @@ postsubmits:
           value: IPv4,IPv6
         - name: GOMAXPROCS
           value: "8"
-        image: registry.istio.io/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -211,14 +211,14 @@ postsubmits:
           value: IPv6
         - name: GOMAXPROCS
           value: "8"
-        image: registry.istio.io/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -269,7 +269,7 @@ postsubmits:
           value: "0"
         - name: GOMAXPROCS
           value: "8"
-        image: registry.istio.io/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
         name: ""
         resources:
           limits:
@@ -277,7 +277,7 @@ postsubmits:
             memory: 24Gi
           requests:
             cpu: "5"
-            memory: 3Gi
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -325,14 +325,14 @@ postsubmits:
           value: "0"
         - name: GOMAXPROCS
           value: "8"
-        image: registry.istio.io/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -381,14 +381,14 @@ postsubmits:
           value: "0"
         - name: GOMAXPROCS
           value: "8"
-        image: registry.istio.io/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 6Gi
         securityContext:
           privileged: true
@@ -437,14 +437,14 @@ postsubmits:
           value: "0"
         - name: GOMAXPROCS
           value: "8"
-        image: registry.istio.io/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -493,14 +493,14 @@ postsubmits:
           value: "0"
         - name: GOMAXPROCS
           value: "8"
-        image: registry.istio.io/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -551,14 +551,14 @@ postsubmits:
           value: "0"
         - name: GOMAXPROCS
           value: "8"
-        image: registry.istio.io/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -605,14 +605,14 @@ postsubmits:
           value: "0"
         - name: GOMAXPROCS
           value: "8"
-        image: registry.istio.io/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -648,14 +648,14 @@ postsubmits:
           value: "0"
         - name: GOMAXPROCS
           value: "8"
-        image: registry.istio.io/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -699,14 +699,14 @@ presubmits:
           value: IPv4,IPv6
         - name: GOMAXPROCS
           value: "8"
-        image: registry.istio.io/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -760,14 +760,14 @@ presubmits:
           value: IPv6
         - name: GOMAXPROCS
           value: "8"
-        image: registry.istio.io/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -820,7 +820,7 @@ presubmits:
           value: "0"
         - name: GOMAXPROCS
           value: "8"
-        image: registry.istio.io/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
         name: ""
         resources:
           limits:
@@ -828,7 +828,7 @@ presubmits:
             memory: 24Gi
           requests:
             cpu: "5"
-            memory: 3Gi
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -878,14 +878,14 @@ presubmits:
           value: "0"
         - name: GOMAXPROCS
           value: "8"
-        image: registry.istio.io/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -936,14 +936,14 @@ presubmits:
           value: "0"
         - name: GOMAXPROCS
           value: "8"
-        image: registry.istio.io/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 6Gi
         securityContext:
           privileged: true
@@ -994,14 +994,14 @@ presubmits:
           value: "0"
         - name: GOMAXPROCS
           value: "8"
-        image: registry.istio.io/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -1052,14 +1052,14 @@ presubmits:
           value: "0"
         - name: GOMAXPROCS
           value: "8"
-        image: registry.istio.io/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -1112,14 +1112,14 @@ presubmits:
           value: "0"
         - name: GOMAXPROCS
           value: "8"
-        image: registry.istio.io/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -1168,14 +1168,14 @@ presubmits:
           value: "0"
         - name: GOMAXPROCS
           value: "8"
-        image: registry.istio.io/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -1212,14 +1212,14 @@ presubmits:
           value: "0"
         - name: GOMAXPROCS
           value: "8"
-        image: registry.istio.io/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -1268,14 +1268,14 @@ presubmits:
           value: "0"
         - name: GOMAXPROCS
           value: "8"
-        image: registry.istio.io/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true

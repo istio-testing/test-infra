@@ -41,7 +41,7 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-prerelease-private_credentials","project":"istio-testing","env":"CF_PRERELEASE_CREDENTIALS"},{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
@@ -99,7 +99,7 @@ postsubmits:
           value: "0"
         - name: GOMAXPROCS
           value: "3"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
@@ -155,7 +155,7 @@ postsubmits:
           value: "3"
         - name: VERSION
           value: "1.31"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
@@ -209,7 +209,7 @@ postsubmits:
           value: "0"
         - name: GOMAXPROCS
           value: "3"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
@@ -277,7 +277,7 @@ presubmits:
           value: istio-prerelease-private/prerelease
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-prerelease-private_credentials","project":"istio-testing","env":"CF_PRERELEASE_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
@@ -323,7 +323,7 @@ presubmits:
           value: "0"
         - name: GOMAXPROCS
           value: "3"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
@@ -382,7 +382,7 @@ presubmits:
           value: "3"
         - name: VERSION
           value: "1.31"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
@@ -439,7 +439,7 @@ presubmits:
           value: "0"
         - name: GOMAXPROCS
           value: "3"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:

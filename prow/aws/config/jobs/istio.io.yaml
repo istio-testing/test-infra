@@ -1,7 +1,7 @@
 org: istio
 repo: istio.io
 support_release_branching: true
-image: registry.istio.io/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
 
 jobs:
   - name: lint
@@ -38,6 +38,7 @@ jobs:
     regex: ^(go.mod$|tests/|pkg/test/|prow/|content/en/boilerplates/snips/|content/en/docs/.*(test\.sh|/snips\.sh)$)
 
   - name: doc.test.multicluster
+    resources: multicluster
     command:
     - entrypoint
     - prow/integ-suite-kind.sh
@@ -45,6 +46,7 @@ jobs:
     - MULTICLUSTER
     - doc.test.multicluster
     requirements: [kind]
+    env:
     regex: ^(go.mod$|tests/|pkg/test/|prow/|content/en/boilerplates/snips/|content/en/docs/.*(test\.sh|/snips\.sh)$)
 
   - name: doc.test.dualstack
@@ -125,14 +127,14 @@ resources_presets:
   default:
     requests:
       memory: "3Gi"
-      cpu: "5000m"
+      cpu: "3000m"
     limits:
       memory: "24Gi"
       cpu: "8000m"
   lint:
     requests:
       memory: "16Gi"
-      cpu: "3000m"
+      cpu: "2250m"
     limits:
       memory: "24Gi"
       cpu: "5000m"
@@ -140,6 +142,13 @@ resources_presets:
   6Gi:
     requests:
       memory: "6Gi"
+      cpu: "3000m"
+    limits:
+      memory: "24Gi"
+      cpu: "8000m"
+  multicluster:
+    requests:
+      memory: "5Gi"
       cpu: "5000m"
     limits:
       memory: "24Gi"

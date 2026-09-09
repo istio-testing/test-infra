@@ -56,6 +56,16 @@ resource "helm_release" "cluster_autoscaler_prow" {
   }
 
   set {
+    name  = "extraArgs.scale-down-unneeded-time"
+    value = "3m"
+  }
+
+  set {
+    name  = "extraArgs.scale-down-delay-after-add"
+    value = "3m"
+  }
+
+  set {
     name  = "podAnnotations.cluster-autoscaler\\.kubernetes\\.io/safe-to-evict"
     value = "true"
     type  = "string"
@@ -103,6 +113,16 @@ resource "helm_release" "cluster_autoscaler_prow_build" {
     value = "test-pool"
   }
 
+  set {
+    name  = "extraArgs.scale-down-unneeded-time"
+    value = "3m"
+  }
+
+  set {
+    name  = "extraArgs.scale-down-delay-after-add"
+    value = "3m"
+  }
+
   // I could have named stuff better here, but test2 is spot isntances, and we want on-demand when possible
   values = [yamlencode({
     extraArgs = {
@@ -110,7 +130,7 @@ resource "helm_release" "cluster_autoscaler_prow_build" {
     }
     expanderPriorities = {
       "100" = ["^eks-test-.*$"]
-      "10"  = ["^eks-test2-.*$"]
+      "10"  = ["^eks-testspot-.*$"]
     }
   })]
 
@@ -149,6 +169,16 @@ resource "helm_release" "cluster_autoscaler_prow_private" {
   set {
     name  = "rbac.serviceAccount.name"
     value = "cluster-autoscaler"
+  }
+
+  set {
+    name  = "extraArgs.scale-down-unneeded-time"
+    value = "3m"
+  }
+
+  set {
+    name  = "extraArgs.scale-down-delay-after-add"
+    value = "3m"
   }
 
   depends_on = [module.cluster_autoscaler_identity]

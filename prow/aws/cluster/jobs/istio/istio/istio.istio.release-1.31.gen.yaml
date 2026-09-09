@@ -23,14 +23,14 @@ periodics:
         value: "0"
       - name: GOMAXPROCS
         value: "5"
-      image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+      image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
       name: ""
       resources:
         limits:
           cpu: "5"
           memory: 24Gi
         requests:
-          cpu: "5"
+          cpu: "3"
           memory: 3Gi
       securityContext:
         privileged: true
@@ -67,20 +67,24 @@ periodics:
     - command:
       - entrypoint
       - prow/integ-suite-kind.sh
+      - --node-image
+      - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
       - test.integration-fuzz.security.fuzz.kube
       env:
       - name: BUILD_WITH_CONTAINER
         value: "0"
+      - name: ECR_REGISTRY
+        value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
       - name: GOMAXPROCS
         value: "5"
-      image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+      image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
       name: ""
       resources:
         limits:
           cpu: "5"
           memory: 24Gi
         requests:
-          cpu: "5"
+          cpu: "3"
           memory: 3Gi
       securityContext:
         privileged: true
@@ -148,14 +152,14 @@ periodics:
         value: '[{"secret":"github_istio-testing_pusher","project":"istio-prow-build","env":"GH_TOKEN"}]'
       - name: GOMAXPROCS
         value: "5"
-      image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+      image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
       name: ""
       resources:
         limits:
           cpu: "5"
           memory: 24Gi
         requests:
-          cpu: "5"
+          cpu: "3"
           memory: 3Gi
       securityContext:
         privileged: true
@@ -199,7 +203,7 @@ postsubmits:
           value: "0"
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-prow_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
@@ -258,14 +262,14 @@ postsubmits:
           value: '[{"secret":"release_docker_istio","project":"istio-prow-build","file":"/var/run/ci/docker/config.json"},{"secret":"github_istio-testing_pusher","project":"istio-prow-build","env":"GH_TOKEN"}]'
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -304,22 +308,26 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.kube.agentgateway
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
         - name: INTEGRATION_TEST_FLAGS
           value: --istio.test.agentgateway
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -364,6 +372,8 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --kind-config
         - prow/config/ambient-sc.yaml
         - test.integration.ambient.kube
@@ -374,16 +384,18 @@ postsubmits:
           value: --istio.test.ambient
         - name: KUBERNETES_CNI
           value: calico
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -428,6 +440,8 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --kind-config
         - prow/config/ambient-sc.yaml
         - test.integration.ambient.kube
@@ -440,16 +454,18 @@ postsubmits:
           value: ' --istio.test.kube.helm.values=cni.ambient.ipv6=true --istio.test.ambient '
         - name: IP_FAMILIES
           value: IPv4,IPv6
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -494,6 +510,8 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --kind-config
         - prow/config/ambient-sc.yaml
         - test.integration.ambient.kube
@@ -506,16 +524,18 @@ postsubmits:
           value: ' --istio.test.kube.helm.values=cni.ambient.ipv6=true --istio.test.ambient '
         - name: IP_FAMILIES
           value: IPv6
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -560,6 +580,8 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --kind-config
         - prow/config/ambient-sc.yaml
         - --topology
@@ -572,17 +594,19 @@ postsubmits:
           value: "0"
         - name: INTEGRATION_TEST_FLAGS
           value: --istio.test.ambient --istio.test.ambient.multinetwork
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
-          value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+          value: "8"
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
-            cpu: "5"
+            cpu: "8"
             memory: 24Gi
           requests:
             cpu: "5"
-            memory: 3Gi
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -626,6 +650,8 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --kind-config
         - prow/config/ambient-sc.yaml
         - test.integration.ambient.kube
@@ -634,16 +660,18 @@ postsubmits:
           value: "0"
         - name: INTEGRATION_TEST_FLAGS
           value: '--istio.test.ambient --istio.test.nativeNftables '
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -688,6 +716,8 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --kind-config
         - prow/config/ambient-sc.yaml
         - test.integration.ambient.kube
@@ -697,16 +727,18 @@ postsubmits:
         - name: INTEGRATION_TEST_FLAGS
           value: '--istio.test.kube.helm.values=cni.istioOwnedCNIConfig=true --istio.test.ambient.istioOwnedCNIConfig
             --istio.test.ambient '
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -751,6 +783,8 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --kind-config
         - prow/config/ambient-sc.yaml
         - test.integration.ambient.kube
@@ -759,16 +793,18 @@ postsubmits:
           value: "0"
         - name: INTEGRATION_TEST_FLAGS
           value: --istio.test.ambient
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -815,22 +851,26 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.kube
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
         - name: INTEGRATION_TEST_FLAGS
           value: ' --istio.test.istio.operatorOptions=values.pilot.env.UNSAFE_PILOT_ENABLE_RUNTIME_ASSERTIONS=true '
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -875,20 +915,24 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.kube.environment
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -940,6 +984,8 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.kube
         env:
         - name: BUILD_WITH_CONTAINER
@@ -948,16 +994,18 @@ postsubmits:
           value: ' --istio.test.retries=1 --istio.test.istio.enableCNI=true '
         - name: TEST_SELECT
           value: -flaky
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -1002,22 +1050,26 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.kube.environment
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
         - name: VARIANT
           value: distroless
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -1062,6 +1114,8 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.kube.environment
         env:
         - name: BUILD_WITH_CONTAINER
@@ -1070,16 +1124,18 @@ postsubmits:
           value: "true"
         - name: IP_FAMILIES
           value: IPv4,IPv6
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -1124,6 +1180,8 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.pilot.kube
         env:
         - name: BUILD_WITH_CONTAINER
@@ -1132,16 +1190,18 @@ postsubmits:
           value: --istio.test.gatewayAPIOnly --istio.test.kube.gatewayClassName=istio-alt
         - name: T
           value: -run="TestGatewayConformance|TestGateway$$|TestHTTPRouteAndGRPCRouteCoexistence|TestInferencePoolMultipleTargetPorts"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -1186,20 +1246,24 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.helm.kube
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -1244,6 +1308,8 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.kube.environment
         env:
         - name: BUILD_WITH_CONTAINER
@@ -1252,16 +1318,18 @@ postsubmits:
           value: "true"
         - name: IP_FAMILIES
           value: IPv6
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -1309,7 +1377,7 @@ postsubmits:
         - entrypoint
         - prow/integ-suite-kind.sh
         - --node-image
-        - registry.istio.io/testing/kind-node:v1.27.8
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.27.8
         - --kind-config
         - prow/config/modern.yaml
         - test.integration.kube
@@ -1318,16 +1386,18 @@ postsubmits:
           value: "0"
         - name: INTEGRATION_TEST_FLAGS
           value: ' --istio.test.retries=1 '
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -1375,7 +1445,7 @@ postsubmits:
         - entrypoint
         - prow/integ-suite-kind.sh
         - --node-image
-        - registry.istio.io/testing/kind-node:v1.28.4
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.28.4
         - --kind-config
         - prow/config/modern.yaml
         - test.integration.kube
@@ -1384,16 +1454,18 @@ postsubmits:
           value: "0"
         - name: INTEGRATION_TEST_FLAGS
           value: ' --istio.test.retries=1 '
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -1441,7 +1513,7 @@ postsubmits:
         - entrypoint
         - prow/integ-suite-kind.sh
         - --node-image
-        - registry.istio.io/testing/kind-node:v1.29.7
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.29.7
         - --kind-config
         - prow/config/modern.yaml
         - test.integration.kube
@@ -1450,16 +1522,18 @@ postsubmits:
           value: "0"
         - name: INTEGRATION_TEST_FLAGS
           value: ' --istio.test.retries=1 '
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -1507,7 +1581,7 @@ postsubmits:
         - entrypoint
         - prow/integ-suite-kind.sh
         - --node-image
-        - registry.istio.io/testing/kind-node:v1.30.3
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.30.3
         - --kind-config
         - prow/config/modern.yaml
         - test.integration.kube
@@ -1516,16 +1590,18 @@ postsubmits:
           value: "0"
         - name: INTEGRATION_TEST_FLAGS
           value: ' --istio.test.retries=1 '
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -1573,7 +1649,7 @@ postsubmits:
         - entrypoint
         - prow/integ-suite-kind.sh
         - --node-image
-        - registry.istio.io/testing/kind-node:v1.31.0
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.31.0
         - --kind-config
         - prow/config/modern.yaml
         - test.integration.kube
@@ -1582,16 +1658,18 @@ postsubmits:
           value: "0"
         - name: INTEGRATION_TEST_FLAGS
           value: ' --istio.test.retries=1 '
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -1639,7 +1717,7 @@ postsubmits:
         - entrypoint
         - prow/integ-suite-kind.sh
         - --node-image
-        - registry.istio.io/testing/kind-node:v1.32.0
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.32.0
         - --kind-config
         - prow/config/modern.yaml
         - test.integration.kube
@@ -1648,16 +1726,18 @@ postsubmits:
           value: "0"
         - name: INTEGRATION_TEST_FLAGS
           value: ' --istio.test.retries=1 '
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -1705,7 +1785,7 @@ postsubmits:
         - entrypoint
         - prow/integ-suite-kind.sh
         - --node-image
-        - registry.istio.io/testing/kind-node:v1.33.1
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.33.1
         - --kind-config
         - prow/config/modern.yaml
         - test.integration.kube
@@ -1714,16 +1794,18 @@ postsubmits:
           value: "0"
         - name: INTEGRATION_TEST_FLAGS
           value: ' --istio.test.retries=1 '
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -1771,7 +1853,7 @@ postsubmits:
         - entrypoint
         - prow/integ-suite-kind.sh
         - --node-image
-        - registry.istio.io/testing/kind-node:v1.34.0
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.34.0
         - --kind-config
         - prow/config/modern.yaml
         - test.integration.kube
@@ -1780,16 +1862,18 @@ postsubmits:
           value: "0"
         - name: INTEGRATION_TEST_FLAGS
           value: ' --istio.test.retries=1 '
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -1837,7 +1921,7 @@ postsubmits:
         - entrypoint
         - prow/integ-suite-kind.sh
         - --node-image
-        - registry.istio.io/testing/kind-node:v1.35.0
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --kind-config
         - prow/config/modern.yaml
         - test.integration.kube
@@ -1846,16 +1930,18 @@ postsubmits:
           value: "0"
         - name: INTEGRATION_TEST_FLAGS
           value: ' --istio.test.retries=1 '
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -1903,7 +1989,7 @@ postsubmits:
         - entrypoint
         - prow/integ-suite-kind.sh
         - --node-image
-        - registry.istio.io/testing/kind-node:v1.36.0
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.36.0
         - --kind-config
         - prow/config/modern.yaml
         - test.integration.kube
@@ -1912,16 +1998,18 @@ postsubmits:
           value: "0"
         - name: INTEGRATION_TEST_FLAGS
           value: ' --istio.test.retries=1 '
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -1966,22 +2054,26 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.pilot.kube
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
         - name: GRPC_ECHO_IMAGE
           value: grpctesting/istio_echo_cpp
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -2026,6 +2118,8 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --topology
         - MULTICLUSTER
         - --topology-config
@@ -2034,17 +2128,19 @@ postsubmits:
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "8"
-            memory: 3Gi
+            cpu: "5"
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -2088,6 +2184,8 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --topology
         - MULTICLUSTER
         - --topology-config
@@ -2098,17 +2196,19 @@ postsubmits:
           value: "0"
         - name: INTEGRATION_TEST_FLAGS
           value: --istio.test.skipVM
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "8"
-            memory: 3Gi
+            cpu: "5"
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -2152,6 +2252,8 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --topology
         - MULTICLUSTER
         - --topology-config
@@ -2162,17 +2264,19 @@ postsubmits:
           value: "0"
         - name: INTEGRATION_TEST_FLAGS
           value: --istio.test.skipVM
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "8"
-            memory: 3Gi
+            cpu: "5"
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -2216,23 +2320,27 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --topology
         - MULTICLUSTER
         - test.integration.pilot.kube
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "8"
-            memory: 3Gi
+            cpu: "5"
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -2276,20 +2384,24 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.pilot.kube
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -2334,6 +2446,8 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --topology
         - MULTICLUSTER
         - --topology-config
@@ -2344,17 +2458,19 @@ postsubmits:
           value: "0"
         - name: INTEGRATION_TEST_FLAGS
           value: --istio.test.skipVM
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "8"
-            memory: 3Gi
+            cpu: "5"
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -2398,23 +2514,27 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --topology
         - MULTICLUSTER
         - test.integration.security.kube
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "8"
-            memory: 3Gi
+            cpu: "5"
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -2458,20 +2578,24 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.security.kube
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -2516,22 +2640,26 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.telemetry.kube
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
         - name: INTEGRATION_TEST_FLAGS
           value: --istio.test.peer_metadata_discovery
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -2576,6 +2704,8 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --topology
         - MULTICLUSTER
         - --topology-config
@@ -2586,17 +2716,19 @@ postsubmits:
           value: "0"
         - name: INTEGRATION_TEST_FLAGS
           value: --istio.test.skipVM
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "8"
-            memory: 3Gi
+            cpu: "5"
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -2640,23 +2772,27 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --topology
         - MULTICLUSTER
         - test.integration.telemetry.kube
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "8"
-            memory: 3Gi
+            cpu: "5"
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -2700,20 +2836,24 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.telemetry.kube
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -2769,7 +2909,7 @@ postsubmits:
           value: /var/run/ci/docker
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build_credentials","project":"istio-testing","env":"CF_CREDENTIALS"},{"secret":"testing_ghcr_istio","file":"/var/run/ci/docker/config.json"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
@@ -2822,14 +2962,14 @@ postsubmits:
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             memory: 24Gi
           requests:
-            cpu: "15"
-            memory: 8Gi
+            cpu: 11250m
+            memory: 6Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -2875,14 +3015,14 @@ postsubmits:
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             memory: 24Gi
           requests:
-            cpu: "15"
-            memory: 8Gi
+            cpu: 11250m
+            memory: 6Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -2922,7 +3062,7 @@ presubmits:
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
@@ -2970,14 +3110,14 @@ presubmits:
           value: "0"
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -3017,6 +3157,8 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --topology
         - MULTICLUSTER
         - test.integration.kube
@@ -3029,17 +3171,19 @@ presubmits:
           value: http://collector.opentelemetry:4317
         - name: OTEL_EXPORTER_OTLP_INSECURE
           value: "true"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "8"
-            memory: 3Gi
+            cpu: "5"
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -3090,14 +3234,14 @@ presubmits:
           value: "0"
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -3138,14 +3282,14 @@ presubmits:
           value: "0"
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -3181,22 +3325,26 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.kube.agentgateway
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
         - name: INTEGRATION_TEST_FLAGS
           value: --istio.test.agentgateway
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -3243,6 +3391,8 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --kind-config
         - prow/config/ambient-sc.yaml
         - test.integration.ambient.kube
@@ -3253,16 +3403,18 @@ presubmits:
           value: --istio.test.ambient
         - name: KUBERNETES_CNI
           value: calico
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -3309,6 +3461,8 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --kind-config
         - prow/config/ambient-sc.yaml
         - test.integration.ambient.kube
@@ -3321,16 +3475,18 @@ presubmits:
           value: ' --istio.test.kube.helm.values=cni.ambient.ipv6=true --istio.test.ambient '
         - name: IP_FAMILIES
           value: IPv4,IPv6
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -3376,6 +3532,8 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --kind-config
         - prow/config/ambient-sc.yaml
         - test.integration.ambient.kube
@@ -3388,16 +3546,18 @@ presubmits:
           value: ' --istio.test.kube.helm.values=cni.ambient.ipv6=true --istio.test.ambient '
         - name: IP_FAMILIES
           value: IPv6
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -3443,6 +3603,8 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --kind-config
         - prow/config/ambient-sc.yaml
         - --topology
@@ -3455,17 +3617,19 @@ presubmits:
           value: "0"
         - name: INTEGRATION_TEST_FLAGS
           value: --istio.test.ambient --istio.test.ambient.multinetwork
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
-          value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+          value: "8"
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
-            cpu: "5"
+            cpu: "8"
             memory: 24Gi
           requests:
             cpu: "5"
-            memory: 3Gi
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -3511,6 +3675,8 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --kind-config
         - prow/config/ambient-sc.yaml
         - test.integration.ambient.kube
@@ -3519,16 +3685,18 @@ presubmits:
           value: "0"
         - name: INTEGRATION_TEST_FLAGS
           value: '--istio.test.ambient --istio.test.nativeNftables '
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -3576,6 +3744,8 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --kind-config
         - prow/config/ambient-sc.yaml
         - test.integration.ambient.kube
@@ -3585,16 +3755,18 @@ presubmits:
         - name: INTEGRATION_TEST_FLAGS
           value: '--istio.test.kube.helm.values=cni.istioOwnedCNIConfig=true --istio.test.ambient.istioOwnedCNIConfig
             --istio.test.ambient '
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -3641,6 +3813,8 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --kind-config
         - prow/config/ambient-sc.yaml
         - test.integration.ambient.kube
@@ -3649,16 +3823,18 @@ presubmits:
           value: "0"
         - name: INTEGRATION_TEST_FLAGS
           value: --istio.test.ambient
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -3707,22 +3883,26 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.kube
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
         - name: INTEGRATION_TEST_FLAGS
           value: ' --istio.test.istio.operatorOptions=values.pilot.env.UNSAFE_PILOT_ENABLE_RUNTIME_ASSERTIONS=true '
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -3768,20 +3948,24 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.kube.environment
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -3832,22 +4016,26 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.pilot.kube.presubmit
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
         - name: INTEGRATION_TEST_FLAGS
           value: ' --istio.test.istio.enableCNI=true '
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -3893,22 +4081,26 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.kube.environment
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
         - name: VARIANT
           value: distroless
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -3954,6 +4146,8 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.kube.environment
         env:
         - name: BUILD_WITH_CONTAINER
@@ -3962,16 +4156,18 @@ presubmits:
           value: "true"
         - name: IP_FAMILIES
           value: IPv4,IPv6
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -4018,6 +4214,8 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.pilot.kube
         env:
         - name: BUILD_WITH_CONTAINER
@@ -4026,16 +4224,18 @@ presubmits:
           value: --istio.test.gatewayAPIOnly --istio.test.kube.gatewayClassName=istio-alt
         - name: T
           value: -run="TestGatewayConformance|TestGateway$$|TestHTTPRouteAndGRPCRouteCoexistence|TestInferencePoolMultipleTargetPorts"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -4082,20 +4282,24 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.helm.kube
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -4141,6 +4345,8 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.kube.environment
         env:
         - name: BUILD_WITH_CONTAINER
@@ -4149,16 +4355,18 @@ presubmits:
           value: "true"
         - name: IP_FAMILIES
           value: IPv6
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -4205,6 +4413,8 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --topology
         - MULTICLUSTER
         - --topology-config
@@ -4213,17 +4423,19 @@ presubmits:
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "8"
-            memory: 3Gi
+            cpu: "5"
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -4269,6 +4481,8 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --topology
         - MULTICLUSTER
         - --topology-config
@@ -4279,17 +4493,19 @@ presubmits:
           value: "0"
         - name: INTEGRATION_TEST_FLAGS
           value: --istio.test.skipVM
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "8"
-            memory: 3Gi
+            cpu: "5"
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -4335,6 +4551,8 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --topology
         - MULTICLUSTER
         - --topology-config
@@ -4345,17 +4563,19 @@ presubmits:
           value: "0"
         - name: INTEGRATION_TEST_FLAGS
           value: --istio.test.skipVM
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "8"
-            memory: 3Gi
+            cpu: "5"
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -4401,23 +4621,27 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --topology
         - MULTICLUSTER
         - test.integration.pilot.kube
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "8"
-            memory: 3Gi
+            cpu: "5"
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -4463,20 +4687,24 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.pilot.kube
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -4522,6 +4750,8 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --topology
         - MULTICLUSTER
         - --topology-config
@@ -4532,17 +4762,19 @@ presubmits:
           value: "0"
         - name: INTEGRATION_TEST_FLAGS
           value: --istio.test.skipVM
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "8"
-            memory: 3Gi
+            cpu: "5"
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -4588,23 +4820,27 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --topology
         - MULTICLUSTER
         - test.integration.security.kube
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "8"
-            memory: 3Gi
+            cpu: "5"
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -4650,20 +4886,24 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.security.kube
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -4709,22 +4949,26 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.telemetry.kube
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
         - name: INTEGRATION_TEST_FLAGS
           value: --istio.test.peer_metadata_discovery
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -4771,6 +5015,8 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --topology
         - MULTICLUSTER
         - --topology-config
@@ -4781,17 +5027,19 @@ presubmits:
           value: "0"
         - name: INTEGRATION_TEST_FLAGS
           value: --istio.test.skipVM
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "8"
-            memory: 3Gi
+            cpu: "5"
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -4837,23 +5085,27 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --topology
         - MULTICLUSTER
         - test.integration.telemetry.kube
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "8"
-            memory: 3Gi
+            cpu: "5"
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -4898,20 +5150,24 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.telemetry.kube
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -4960,13 +5216,13 @@ presubmits:
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             memory: 24Gi
           requests:
-            cpu: "3"
+            cpu: 2250m
             memory: 16Gi
         securityContext:
           privileged: true
@@ -5008,14 +5264,14 @@ presubmits:
           value: "0"
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -5059,14 +5315,14 @@ presubmits:
           value: '[{"secret":"github-read_github_read","project":"istio-prow-build","env":"GH_TOKEN"}]'
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -5105,7 +5361,7 @@ presubmits:
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
@@ -5158,14 +5414,14 @@ presubmits:
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             memory: 24Gi
           requests:
-            cpu: "15"
-            memory: 8Gi
+            cpu: 11250m
+            memory: 6Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -5212,14 +5468,14 @@ presubmits:
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             memory: 24Gi
           requests:
-            cpu: "15"
-            memory: 8Gi
+            cpu: 11250m
+            memory: 6Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -5260,14 +5516,14 @@ presubmits:
           value: "0"
         - name: GOMAXPROCS
           value: "5"
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true

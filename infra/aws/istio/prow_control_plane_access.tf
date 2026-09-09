@@ -6,7 +6,8 @@
 # reap, and read job pods. Each component needs two things:
 #
 # Writers (prow-controller-manager, sinker) create and delete pods -> Edit.
-# Readers (deck, deck-private, crier) only read pod logs/status -> View, reusing
+# Readers (deck, deck-private, crier) use View with their existing workload roles.
+# Crier also patches pod finalizers through the namespaced prow:crier RBAC group.
 
 locals {
   # Components that create and delete job pods on the build clusters. They get
@@ -43,9 +44,10 @@ locals {
     for name, cfg in local.prow_reader_components : {
       for cluster in cfg.clusters :
       "${name}.${cluster}" => {
-        cluster   = cluster
-        principal = cfg.role_arn
-        policy    = "AmazonEKSViewPolicy"
+        cluster           = cluster
+        principal         = cfg.role_arn
+        policy            = "AmazonEKSViewPolicy"
+        kubernetes_groups = name == "crier" ? ["prow:crier"] : null
       }
     }
   ]...)
@@ -77,8 +79,9 @@ module "prow_control_plane_identity" {
 resource "aws_eks_access_entry" "prow_control_plane" {
   for_each = local.prow_cluster_access
 
-  cluster_name  = module.eks[each.value.cluster].cluster_name
-  principal_arn = each.value.principal
+  cluster_name      = module.eks[each.value.cluster].cluster_name
+  principal_arn     = each.value.principal
+  kubernetes_groups = try(each.value.kubernetes_groups, null)
 }
 
 resource "aws_eks_access_policy_association" "prow_control_plane" {

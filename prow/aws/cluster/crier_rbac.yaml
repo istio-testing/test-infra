@@ -69,3 +69,6 @@ subjects:
 - kind: ServiceAccount
   name: crier
   namespace: default
+- kind: Group
+  apiGroup: rbac.authorization.k8s.io
+  name: prow:crier

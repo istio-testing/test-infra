@@ -3,7 +3,7 @@ branches:
 env:
 - name: BUILD_WITH_CONTAINER
   value: "0"
-image: registry.istio.io/testing/build-tools-proxy:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools-proxy:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
 jobs:
 - command:
   - ./prow/proxy-presubmit.sh
@@ -14,7 +14,7 @@ jobs:
     value: ""
   - name: BAZEL_BUILD_RBE_CACHE
     value: http://bazel-remote.bazel-remote.svc.cluster.local:8080
-  image: registry.istio.io/testing/build-tools-proxy:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools-proxy:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: test
   node_selector:
     testing: build-pool
@@ -228,7 +228,7 @@ jobs:
     value: ""
   - name: BAZEL_BUILD_RBE_CACHE
     value: http://bazel-remote.bazel-remote.svc.cluster.local:8080
-  image: registry.istio.io/testing/build-tools-proxy:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools-proxy:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: test-asan
   node_selector:
     testing: build-pool
@@ -446,7 +446,7 @@ jobs:
     value: ""
   - name: BAZEL_BUILD_RBE_CACHE
     value: http://bazel-remote.bazel-remote.svc.cluster.local:8080
-  image: registry.istio.io/testing/build-tools-proxy:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools-proxy:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: test-arm
   node_selector:
     testing: test-pool
@@ -661,7 +661,7 @@ jobs:
     value: ""
   - name: BAZEL_BUILD_RBE_CACHE
     value: http://bazel-remote.bazel-remote.svc.cluster.local:8080
-  image: registry.istio.io/testing/build-tools-proxy:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools-proxy:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: release-test
   node_selector:
     testing: build-pool
@@ -881,7 +881,7 @@ jobs:
     value: ""
   - name: BAZEL_BUILD_RBE_CACHE
     value: http://bazel-remote.bazel-remote.svc.cluster.local:8080
-  image: registry.istio.io/testing/build-tools-proxy:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools-proxy:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: release-test
   node_selector:
     testing: test-pool
@@ -1097,7 +1097,7 @@ jobs:
     value: ""
   - name: BAZEL_BUILD_RBE_CACHE
     value: http://bazel-remote.bazel-remote.svc.cluster.local:8080
-  image: registry.istio.io/testing/build-tools-proxy:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools-proxy:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: release
   node_selector:
     testing: build-pool
@@ -1320,7 +1320,7 @@ jobs:
     value: ""
   - name: BAZEL_BUILD_RBE_CACHE
     value: http://bazel-remote.bazel-remote.svc.cluster.local:8080
-  image: registry.istio.io/testing/build-tools-proxy:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools-proxy:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: release
   node_selector:
     testing: test-pool
@@ -1544,7 +1544,7 @@ jobs:
     value: "0"
   - name: AUTOMATOR_ORG
     value: istio
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: update-istio
   node_selector:
     testing: build-pool
@@ -1766,7 +1766,7 @@ jobs:
     value: "0"
   - name: AUTOMATOR_ORG
     value: istio
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   interval: 24h
   name: update-proxy
   node_selector:

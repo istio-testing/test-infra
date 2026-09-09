@@ -23,7 +23,7 @@ ROOT="$(cd -P "$(dirname -- "$0")" && pwd -P)"
 source "$ROOT/../utils.sh"
 
 # Defaults
-image='registry.istio.io/testing/build-tools.*'
+image='(registry[.]istio[.]io/testing|678412441677[.]dkr[.]ecr[.]us-west-2[.]amazonaws[.]com/ghcr/istio/testing)/build-tools[^:]*'
 tag='$AUTOMATOR_SRC_BRANCH-\([0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}-[0-9]{2}-[0-9]{2}\|[0-9a-f]{40}\)'
 paths='$AUTOMATOR_REPO_DIR/prow/gcp/cluster/jobs/**/*.yaml,$AUTOMATOR_REPO_DIR/prow/gcp/config/jobs/**/*.yaml,$AUTOMATOR_REPO_DIR/prow/gcp/cluster/cloudflare_rotator_cronjob.yaml,$AUTOMATOR_REPO_DIR/prow/aws/cluster/jobs/**/*.yaml,$AUTOMATOR_REPO_DIR/prow/aws/config/jobs/**/*.yaml,$AUTOMATOR_REPO_DIR/prow/aws/cluster/cloudflare_rotator_cronjob.yaml'
 key="image"
@@ -83,7 +83,7 @@ get_opts() {
 }
 
 resolve() {
-  image="$(evaluate_tmpl "$image")"
+  # image is an ERE consumed by sed, not a template value.
   tag="$(evaluate_tmpl "$tag")"
   paths="$(evaluate_tmpl "$paths")"
   source="$(evaluate_tmpl "$source")"
@@ -93,7 +93,7 @@ resolve() {
 }
 
 work() {
-  # Update build-tools and build-tools-centos images
+  # Update build-tools images while preserving the registry configured per cluster.
   # shellcheck disable=SC2086
   sed -Ei "s,($key:\s+$image:)$tag,\1$resolved_tag,g" $resolved_paths
 }

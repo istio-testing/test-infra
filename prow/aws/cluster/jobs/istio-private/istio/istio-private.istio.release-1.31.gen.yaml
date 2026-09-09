@@ -15,11 +15,15 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.kube.agentgateway
         env:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: INTEGRATION_TEST_FLAGS
@@ -33,14 +37,14 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -95,6 +99,8 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --kind-config
         - prow/config/ambient-sc.yaml
         - test.integration.ambient.kube
@@ -102,6 +108,8 @@ postsubmits:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: INTEGRATION_TEST_FLAGS
@@ -117,14 +125,14 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -179,6 +187,8 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --kind-config
         - prow/config/ambient-sc.yaml
         - test.integration.ambient.kube
@@ -188,6 +198,8 @@ postsubmits:
           value: "0"
         - name: DOCKER_IN_DOCKER_IPV6_ENABLED
           value: "true"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: INTEGRATION_TEST_FLAGS
@@ -203,14 +215,14 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -265,6 +277,8 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --kind-config
         - prow/config/ambient-sc.yaml
         - test.integration.ambient.kube
@@ -274,6 +288,8 @@ postsubmits:
           value: "0"
         - name: DOCKER_IN_DOCKER_IPV6_ENABLED
           value: "true"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: INTEGRATION_TEST_FLAGS
@@ -289,14 +305,14 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -351,6 +367,8 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --kind-config
         - prow/config/ambient-sc.yaml
         - --topology
@@ -362,8 +380,10 @@ postsubmits:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
-          value: "5"
+          value: "8"
         - name: INTEGRATION_TEST_FLAGS
           value: --istio.test.ambient --istio.test.ambient.multinetwork
         - name: DEPENDENCIES
@@ -375,15 +395,15 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
-            cpu: "5"
+            cpu: "8"
             memory: 24Gi
           requests:
             cpu: "5"
-            memory: 3Gi
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -437,6 +457,8 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --kind-config
         - prow/config/ambient-sc.yaml
         - test.integration.ambient.kube
@@ -444,6 +466,8 @@ postsubmits:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: INTEGRATION_TEST_FLAGS
@@ -457,14 +481,14 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -519,6 +543,8 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --kind-config
         - prow/config/ambient-sc.yaml
         - test.integration.ambient.kube
@@ -526,6 +552,8 @@ postsubmits:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: INTEGRATION_TEST_FLAGS
@@ -540,14 +568,14 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -602,6 +630,8 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --kind-config
         - prow/config/ambient-sc.yaml
         - test.integration.ambient.kube
@@ -609,6 +639,8 @@ postsubmits:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: INTEGRATION_TEST_FLAGS
@@ -622,14 +654,14 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -686,11 +718,15 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.kube
         env:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: INTEGRATION_TEST_FLAGS
@@ -704,14 +740,14 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -766,11 +802,15 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.kube.environment
         env:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: DEPENDENCIES
@@ -782,14 +822,14 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -851,11 +891,15 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.kube
         env:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: INTEGRATION_TEST_FLAGS
@@ -871,14 +915,14 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -933,11 +977,15 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.kube.environment
         env:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: VARIANT
@@ -951,14 +999,14 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -1013,6 +1061,8 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.kube.environment
         env:
         - name: BAZEL_BUILD_RBE_INSTANCE
@@ -1020,6 +1070,8 @@ postsubmits:
           value: "0"
         - name: DOCKER_IN_DOCKER_IPV6_ENABLED
           value: "true"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: IP_FAMILIES
@@ -1033,14 +1085,14 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -1095,11 +1147,15 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.pilot.kube
         env:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: INTEGRATION_TEST_FLAGS
@@ -1115,14 +1171,14 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -1177,11 +1233,15 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.helm.kube
         env:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: DEPENDENCIES
@@ -1193,14 +1253,14 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -1255,6 +1315,8 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.kube.environment
         env:
         - name: BAZEL_BUILD_RBE_INSTANCE
@@ -1262,6 +1324,8 @@ postsubmits:
           value: "0"
         - name: DOCKER_IN_DOCKER_IPV6_ENABLED
           value: "true"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: IP_FAMILIES
@@ -1275,14 +1339,14 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -1340,7 +1404,7 @@ postsubmits:
         - entrypoint
         - prow/integ-suite-kind.sh
         - --node-image
-        - registry.istio.io/testing/kind-node:v1.27.8
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.27.8
         - --kind-config
         - prow/config/modern.yaml
         - test.integration.kube
@@ -1348,6 +1412,8 @@ postsubmits:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: INTEGRATION_TEST_FLAGS
@@ -1361,14 +1427,14 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -1426,7 +1492,7 @@ postsubmits:
         - entrypoint
         - prow/integ-suite-kind.sh
         - --node-image
-        - registry.istio.io/testing/kind-node:v1.28.4
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.28.4
         - --kind-config
         - prow/config/modern.yaml
         - test.integration.kube
@@ -1434,6 +1500,8 @@ postsubmits:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: INTEGRATION_TEST_FLAGS
@@ -1447,14 +1515,14 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -1512,7 +1580,7 @@ postsubmits:
         - entrypoint
         - prow/integ-suite-kind.sh
         - --node-image
-        - registry.istio.io/testing/kind-node:v1.29.7
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.29.7
         - --kind-config
         - prow/config/modern.yaml
         - test.integration.kube
@@ -1520,6 +1588,8 @@ postsubmits:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: INTEGRATION_TEST_FLAGS
@@ -1533,14 +1603,14 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -1598,7 +1668,7 @@ postsubmits:
         - entrypoint
         - prow/integ-suite-kind.sh
         - --node-image
-        - registry.istio.io/testing/kind-node:v1.30.3
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.30.3
         - --kind-config
         - prow/config/modern.yaml
         - test.integration.kube
@@ -1606,6 +1676,8 @@ postsubmits:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: INTEGRATION_TEST_FLAGS
@@ -1619,14 +1691,14 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -1684,7 +1756,7 @@ postsubmits:
         - entrypoint
         - prow/integ-suite-kind.sh
         - --node-image
-        - registry.istio.io/testing/kind-node:v1.31.0
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.31.0
         - --kind-config
         - prow/config/modern.yaml
         - test.integration.kube
@@ -1692,6 +1764,8 @@ postsubmits:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: INTEGRATION_TEST_FLAGS
@@ -1705,14 +1779,14 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -1770,7 +1844,7 @@ postsubmits:
         - entrypoint
         - prow/integ-suite-kind.sh
         - --node-image
-        - registry.istio.io/testing/kind-node:v1.32.0
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.32.0
         - --kind-config
         - prow/config/modern.yaml
         - test.integration.kube
@@ -1778,6 +1852,8 @@ postsubmits:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: INTEGRATION_TEST_FLAGS
@@ -1791,14 +1867,14 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -1856,7 +1932,7 @@ postsubmits:
         - entrypoint
         - prow/integ-suite-kind.sh
         - --node-image
-        - registry.istio.io/testing/kind-node:v1.33.1
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.33.1
         - --kind-config
         - prow/config/modern.yaml
         - test.integration.kube
@@ -1864,6 +1940,8 @@ postsubmits:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: INTEGRATION_TEST_FLAGS
@@ -1877,14 +1955,14 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -1942,7 +2020,7 @@ postsubmits:
         - entrypoint
         - prow/integ-suite-kind.sh
         - --node-image
-        - registry.istio.io/testing/kind-node:v1.34.0
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.34.0
         - --kind-config
         - prow/config/modern.yaml
         - test.integration.kube
@@ -1950,6 +2028,8 @@ postsubmits:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: INTEGRATION_TEST_FLAGS
@@ -1963,14 +2043,14 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -2028,7 +2108,7 @@ postsubmits:
         - entrypoint
         - prow/integ-suite-kind.sh
         - --node-image
-        - registry.istio.io/testing/kind-node:v1.35.0
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --kind-config
         - prow/config/modern.yaml
         - test.integration.kube
@@ -2036,6 +2116,8 @@ postsubmits:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: INTEGRATION_TEST_FLAGS
@@ -2049,14 +2131,14 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -2114,7 +2196,7 @@ postsubmits:
         - entrypoint
         - prow/integ-suite-kind.sh
         - --node-image
-        - registry.istio.io/testing/kind-node:v1.36.0
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.36.0
         - --kind-config
         - prow/config/modern.yaml
         - test.integration.kube
@@ -2122,6 +2204,8 @@ postsubmits:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: INTEGRATION_TEST_FLAGS
@@ -2135,14 +2219,14 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -2197,11 +2281,15 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.pilot.kube
         env:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: GRPC_ECHO_IMAGE
@@ -2215,14 +2303,14 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -2277,6 +2365,8 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --topology
         - MULTICLUSTER
         - --topology-config
@@ -2286,6 +2376,8 @@ postsubmits:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
         - name: DEPENDENCIES
@@ -2297,15 +2389,15 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "8"
-            memory: 3Gi
+            cpu: "5"
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -2359,6 +2451,8 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --topology
         - MULTICLUSTER
         - --topology-config
@@ -2368,6 +2462,8 @@ postsubmits:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
         - name: INTEGRATION_TEST_FLAGS
@@ -2381,15 +2477,15 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "8"
-            memory: 3Gi
+            cpu: "5"
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -2443,6 +2539,8 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --topology
         - MULTICLUSTER
         - --topology-config
@@ -2452,6 +2550,8 @@ postsubmits:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
         - name: INTEGRATION_TEST_FLAGS
@@ -2465,15 +2565,15 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "8"
-            memory: 3Gi
+            cpu: "5"
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -2527,6 +2627,8 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --topology
         - MULTICLUSTER
         - test.integration.pilot.kube
@@ -2534,6 +2636,8 @@ postsubmits:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
         - name: DEPENDENCIES
@@ -2545,15 +2649,15 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "8"
-            memory: 3Gi
+            cpu: "5"
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -2607,11 +2711,15 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.pilot.kube
         env:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: DEPENDENCIES
@@ -2623,14 +2731,14 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -2685,6 +2793,8 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --topology
         - MULTICLUSTER
         - --topology-config
@@ -2694,6 +2804,8 @@ postsubmits:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
         - name: INTEGRATION_TEST_FLAGS
@@ -2707,15 +2819,15 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "8"
-            memory: 3Gi
+            cpu: "5"
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -2769,6 +2881,8 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --topology
         - MULTICLUSTER
         - test.integration.security.kube
@@ -2776,6 +2890,8 @@ postsubmits:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
         - name: DEPENDENCIES
@@ -2787,15 +2903,15 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "8"
-            memory: 3Gi
+            cpu: "5"
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -2849,11 +2965,15 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.security.kube
         env:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: DEPENDENCIES
@@ -2865,14 +2985,14 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -2927,11 +3047,15 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.telemetry.kube
         env:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: INTEGRATION_TEST_FLAGS
@@ -2945,14 +3069,14 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -3007,6 +3131,8 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --topology
         - MULTICLUSTER
         - --topology-config
@@ -3016,6 +3142,8 @@ postsubmits:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
         - name: INTEGRATION_TEST_FLAGS
@@ -3029,15 +3157,15 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "8"
-            memory: 3Gi
+            cpu: "5"
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -3091,6 +3219,8 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --topology
         - MULTICLUSTER
         - test.integration.telemetry.kube
@@ -3098,6 +3228,8 @@ postsubmits:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
         - name: DEPENDENCIES
@@ -3109,15 +3241,15 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "8"
-            memory: 3Gi
+            cpu: "5"
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -3171,11 +3303,15 @@ postsubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.telemetry.kube
         env:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: DEPENDENCIES
@@ -3187,14 +3323,14 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -3274,7 +3410,7 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
@@ -3347,14 +3483,14 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             memory: 24Gi
           requests:
-            cpu: "15"
-            memory: 8Gi
+            cpu: 11250m
+            memory: 6Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -3420,14 +3556,14 @@ postsubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             memory: 24Gi
           requests:
-            cpu: "15"
-            memory: 8Gi
+            cpu: 11250m
+            memory: 6Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -3489,7 +3625,7 @@ presubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
@@ -3555,14 +3691,14 @@ presubmits:
             configMapKeyRef:
               key: dependencies
               name: release-1.31-istio-deps
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -3614,6 +3750,8 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --topology
         - MULTICLUSTER
         - test.integration.kube
@@ -3621,6 +3759,8 @@ presubmits:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
         - name: DEPENDENCIES
@@ -3632,15 +3772,15 @@ presubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "8"
-            memory: 3Gi
+            cpu: "5"
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -3709,14 +3849,14 @@ presubmits:
             configMapKeyRef:
               key: dependencies
               name: release-1.31-istio-deps
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -3775,14 +3915,14 @@ presubmits:
             configMapKeyRef:
               key: dependencies
               name: release-1.31-istio-deps
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -3830,11 +3970,15 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.kube.agentgateway
         env:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: INTEGRATION_TEST_FLAGS
@@ -3848,14 +3992,14 @@ presubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -3914,6 +4058,8 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --kind-config
         - prow/config/ambient-sc.yaml
         - test.integration.ambient.kube
@@ -3921,6 +4067,8 @@ presubmits:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: INTEGRATION_TEST_FLAGS
@@ -3936,14 +4084,14 @@ presubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -4002,6 +4150,8 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --kind-config
         - prow/config/ambient-sc.yaml
         - test.integration.ambient.kube
@@ -4011,6 +4161,8 @@ presubmits:
           value: "0"
         - name: DOCKER_IN_DOCKER_IPV6_ENABLED
           value: "true"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: INTEGRATION_TEST_FLAGS
@@ -4026,14 +4178,14 @@ presubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -4091,6 +4243,8 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --kind-config
         - prow/config/ambient-sc.yaml
         - test.integration.ambient.kube
@@ -4100,6 +4254,8 @@ presubmits:
           value: "0"
         - name: DOCKER_IN_DOCKER_IPV6_ENABLED
           value: "true"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: INTEGRATION_TEST_FLAGS
@@ -4115,14 +4271,14 @@ presubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -4180,6 +4336,8 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --kind-config
         - prow/config/ambient-sc.yaml
         - --topology
@@ -4191,8 +4349,10 @@ presubmits:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
-          value: "5"
+          value: "8"
         - name: INTEGRATION_TEST_FLAGS
           value: --istio.test.ambient --istio.test.ambient.multinetwork
         - name: DEPENDENCIES
@@ -4204,15 +4364,15 @@ presubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
-            cpu: "5"
+            cpu: "8"
             memory: 24Gi
           requests:
             cpu: "5"
-            memory: 3Gi
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -4270,6 +4430,8 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --kind-config
         - prow/config/ambient-sc.yaml
         - test.integration.ambient.kube
@@ -4277,6 +4439,8 @@ presubmits:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: INTEGRATION_TEST_FLAGS
@@ -4290,14 +4454,14 @@ presubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -4357,6 +4521,8 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --kind-config
         - prow/config/ambient-sc.yaml
         - test.integration.ambient.kube
@@ -4364,6 +4530,8 @@ presubmits:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: INTEGRATION_TEST_FLAGS
@@ -4378,14 +4546,14 @@ presubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -4444,6 +4612,8 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --kind-config
         - prow/config/ambient-sc.yaml
         - test.integration.ambient.kube
@@ -4451,6 +4621,8 @@ presubmits:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: INTEGRATION_TEST_FLAGS
@@ -4464,14 +4636,14 @@ presubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -4532,11 +4704,15 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.kube
         env:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: INTEGRATION_TEST_FLAGS
@@ -4550,14 +4726,14 @@ presubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -4615,11 +4791,15 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.kube.environment
         env:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: DEPENDENCIES
@@ -4631,14 +4811,14 @@ presubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -4701,11 +4881,15 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.pilot.kube.presubmit
         env:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: INTEGRATION_TEST_FLAGS
@@ -4719,14 +4903,14 @@ presubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -4784,11 +4968,15 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.kube.environment
         env:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: VARIANT
@@ -4802,14 +4990,14 @@ presubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -4867,6 +5055,8 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.kube.environment
         env:
         - name: BAZEL_BUILD_RBE_INSTANCE
@@ -4874,6 +5064,8 @@ presubmits:
           value: "0"
         - name: DOCKER_IN_DOCKER_IPV6_ENABLED
           value: "true"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: IP_FAMILIES
@@ -4887,14 +5079,14 @@ presubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -4953,11 +5145,15 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.pilot.kube
         env:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: INTEGRATION_TEST_FLAGS
@@ -4973,14 +5169,14 @@ presubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -5039,11 +5235,15 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.helm.kube
         env:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: DEPENDENCIES
@@ -5055,14 +5255,14 @@ presubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -5120,6 +5320,8 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.kube.environment
         env:
         - name: BAZEL_BUILD_RBE_INSTANCE
@@ -5127,6 +5329,8 @@ presubmits:
           value: "0"
         - name: DOCKER_IN_DOCKER_IPV6_ENABLED
           value: "true"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: IP_FAMILIES
@@ -5140,14 +5344,14 @@ presubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -5206,6 +5410,8 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --topology
         - MULTICLUSTER
         - --topology-config
@@ -5215,6 +5421,8 @@ presubmits:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
         - name: DEPENDENCIES
@@ -5226,15 +5434,15 @@ presubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "8"
-            memory: 3Gi
+            cpu: "5"
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -5292,6 +5500,8 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --topology
         - MULTICLUSTER
         - --topology-config
@@ -5301,6 +5511,8 @@ presubmits:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
         - name: INTEGRATION_TEST_FLAGS
@@ -5314,15 +5526,15 @@ presubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "8"
-            memory: 3Gi
+            cpu: "5"
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -5380,6 +5592,8 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --topology
         - MULTICLUSTER
         - --topology-config
@@ -5389,6 +5603,8 @@ presubmits:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
         - name: INTEGRATION_TEST_FLAGS
@@ -5402,15 +5618,15 @@ presubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "8"
-            memory: 3Gi
+            cpu: "5"
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -5468,6 +5684,8 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --topology
         - MULTICLUSTER
         - test.integration.pilot.kube
@@ -5475,6 +5693,8 @@ presubmits:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
         - name: DEPENDENCIES
@@ -5486,15 +5706,15 @@ presubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "8"
-            memory: 3Gi
+            cpu: "5"
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -5552,11 +5772,15 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.pilot.kube
         env:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: DEPENDENCIES
@@ -5568,14 +5792,14 @@ presubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -5633,6 +5857,8 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --topology
         - MULTICLUSTER
         - --topology-config
@@ -5642,6 +5868,8 @@ presubmits:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
         - name: INTEGRATION_TEST_FLAGS
@@ -5655,15 +5883,15 @@ presubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "8"
-            memory: 3Gi
+            cpu: "5"
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -5721,6 +5949,8 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --topology
         - MULTICLUSTER
         - test.integration.security.kube
@@ -5728,6 +5958,8 @@ presubmits:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
         - name: DEPENDENCIES
@@ -5739,15 +5971,15 @@ presubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "8"
-            memory: 3Gi
+            cpu: "5"
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -5805,11 +6037,15 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.security.kube
         env:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: DEPENDENCIES
@@ -5821,14 +6057,14 @@ presubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -5886,11 +6122,15 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.telemetry.kube
         env:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: INTEGRATION_TEST_FLAGS
@@ -5904,14 +6144,14 @@ presubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -5970,6 +6210,8 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --topology
         - MULTICLUSTER
         - --topology-config
@@ -5979,6 +6221,8 @@ presubmits:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
         - name: INTEGRATION_TEST_FLAGS
@@ -5992,15 +6236,15 @@ presubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "8"
-            memory: 3Gi
+            cpu: "5"
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -6058,6 +6302,8 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - --topology
         - MULTICLUSTER
         - test.integration.telemetry.kube
@@ -6065,6 +6311,8 @@ presubmits:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
         - name: DEPENDENCIES
@@ -6076,15 +6324,15 @@ presubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "8"
             memory: 24Gi
           requests:
-            cpu: "8"
-            memory: 3Gi
+            cpu: "5"
+            memory: 5Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -6141,11 +6389,15 @@ presubmits:
       - command:
         - entrypoint
         - prow/integ-suite-kind.sh
+        - --node-image
+        - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
         - test.integration.telemetry.kube
         env:
         - name: BAZEL_BUILD_RBE_INSTANCE
         - name: BUILD_WITH_CONTAINER
           value: "0"
+        - name: ECR_REGISTRY
+          value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
         - name: DEPENDENCIES
@@ -6157,14 +6409,14 @@ presubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -6231,13 +6483,13 @@ presubmits:
             configMapKeyRef:
               key: dependencies
               name: release-1.31-istio-deps
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             memory: 24Gi
           requests:
-            cpu: "3"
+            cpu: 2250m
             memory: 16Gi
         securityContext:
           privileged: true
@@ -6297,14 +6549,14 @@ presubmits:
             configMapKeyRef:
               key: dependencies
               name: release-1.31-istio-deps
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true
@@ -6364,7 +6616,7 @@ presubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
@@ -6439,14 +6691,14 @@ presubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             memory: 24Gi
           requests:
-            cpu: "15"
-            memory: 8Gi
+            cpu: 11250m
+            memory: 6Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -6515,14 +6767,14 @@ presubmits:
           value: s3://istio-build-private/proxy
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build-private_credentials","project":"istio-testing","env":"CF_CREDENTIALS"}]'
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             memory: 24Gi
           requests:
-            cpu: "15"
-            memory: 8Gi
+            cpu: 11250m
+            memory: 6Gi
         securityContext:
           privileged: true
         volumeMounts:
@@ -6581,14 +6833,14 @@ presubmits:
             configMapKeyRef:
               key: dependencies
               name: release-1.31-istio-deps
-        image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
         name: ""
         resources:
           limits:
             cpu: "5"
             memory: 24Gi
           requests:
-            cpu: "5"
+            cpu: "3"
             memory: 3Gi
         securityContext:
           privileged: true

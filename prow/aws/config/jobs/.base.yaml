@@ -28,6 +28,10 @@ resources_presets:
 
 requirements: [cache]
 requirement_presets:
+  ecr:
+    env:
+    - name: ECR_REGISTRY
+      value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
   kind:
     volumeMounts:
     - mountPath: /lib/modules

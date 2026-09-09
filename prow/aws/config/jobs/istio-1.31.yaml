@@ -3,7 +3,7 @@ branches:
 env:
 - name: BUILD_WITH_CONTAINER
   value: "0"
-image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
 jobs:
 - architectures:
   - amd64
@@ -19,7 +19,7 @@ jobs:
   env:
   - name: BUILD_WITH_CONTAINER
     value: "0"
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: unit-tests
   node_selector:
     testing: test-pool
@@ -216,7 +216,7 @@ jobs:
   - cache
   - cache
   - gocache
-  resources: dedicated
+  resources: unit
   resources_presets:
     dedicated:
       limits:
@@ -250,7 +250,7 @@ jobs:
   env:
   - name: BUILD_WITH_CONTAINER
     value: "0"
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: release-test
   node_selector:
     testing: test-pool
@@ -481,7 +481,7 @@ jobs:
     value: ghcr.io/istio/testing
   - name: HELM_HUB
     value: ghcr.io/istio/testing/charts
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: release
   node_selector:
     testing: test-pool
@@ -712,7 +712,7 @@ jobs:
   env:
   - name: BUILD_WITH_CONTAINER
     value: "0"
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   modifiers:
   - presubmit_optional
   - presubmit_skipped
@@ -943,7 +943,7 @@ jobs:
   env:
   - name: BUILD_WITH_CONTAINER
     value: "0"
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: benchmark-report
   node_selector:
     testing: test-pool
@@ -1167,13 +1167,15 @@ jobs:
 - command:
   - entrypoint
   - prow/integ-suite-kind.sh
+  - --node-image
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
   - test.integration.pilot.kube.presubmit
   env:
   - name: BUILD_WITH_CONTAINER
     value: "0"
   - name: INTEGRATION_TEST_FLAGS
     value: ' --istio.test.istio.enableCNI=true '
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: integ-cni
   node_selector:
     testing: test-pool
@@ -1364,6 +1366,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources_presets:
     dedicated:
       limits:
@@ -1396,11 +1399,13 @@ jobs:
 - command:
   - entrypoint
   - prow/integ-suite-kind.sh
+  - --node-image
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
   - test.integration.telemetry.kube
   env:
   - name: BUILD_WITH_CONTAINER
     value: "0"
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: integ-telemetry
   node_selector:
     testing: test-pool
@@ -1591,6 +1596,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources_presets:
     dedicated:
       limits:
@@ -1621,13 +1627,15 @@ jobs:
 - command:
   - entrypoint
   - prow/integ-suite-kind.sh
+  - --node-image
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
   - test.integration.telemetry.kube
   env:
   - name: BUILD_WITH_CONTAINER
     value: "0"
   - name: INTEGRATION_TEST_FLAGS
     value: --istio.test.peer_metadata_discovery
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: integ-telemetry-discovery
   node_selector:
     testing: test-pool
@@ -1818,6 +1826,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources_presets:
     dedicated:
       limits:
@@ -1848,13 +1857,15 @@ jobs:
 - command:
   - entrypoint
   - prow/integ-suite-kind.sh
+  - --node-image
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
   - --topology
   - MULTICLUSTER
   - test.integration.telemetry.kube
   env:
   - name: BUILD_WITH_CONTAINER
     value: "0"
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: integ-telemetry-mc
   node_selector:
     testing: test-pool
@@ -2045,6 +2056,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources: multicluster
   resources_presets:
     dedicated:
@@ -2076,6 +2088,8 @@ jobs:
 - command:
   - entrypoint
   - prow/integ-suite-kind.sh
+  - --node-image
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
   - --topology
   - MULTICLUSTER
   - --topology-config
@@ -2086,7 +2100,7 @@ jobs:
     value: "0"
   - name: INTEGRATION_TEST_FLAGS
     value: --istio.test.skipVM
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: integ-telemetry-istiodremote
   node_selector:
     testing: test-pool
@@ -2277,6 +2291,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources: multicluster
   resources_presets:
     dedicated:
@@ -2308,6 +2323,8 @@ jobs:
 - command:
   - entrypoint
   - prow/integ-suite-kind.sh
+  - --node-image
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
   - --kind-config
   - prow/config/ambient-sc.yaml
   - test.integration.ambient.kube
@@ -2318,7 +2335,7 @@ jobs:
     value: --istio.test.ambient
   - name: KUBERNETES_CNI
     value: calico
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   modifiers:
   - presubmit_optional
   - presubmit_skipped
@@ -2512,6 +2529,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources_presets:
     dedicated:
       limits:
@@ -2542,13 +2560,15 @@ jobs:
 - command:
   - entrypoint
   - prow/integ-suite-kind.sh
+  - --node-image
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
   - test.integration.kube.environment
   env:
   - name: BUILD_WITH_CONTAINER
     value: "0"
   - name: VARIANT
     value: distroless
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: integ-distroless
   node_selector:
     testing: test-pool
@@ -2739,6 +2759,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources_presets:
     dedicated:
       limits:
@@ -2769,13 +2790,15 @@ jobs:
 - command:
   - entrypoint
   - prow/integ-suite-kind.sh
+  - --node-image
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
   - --topology
   - MULTICLUSTER
   - test.integration.kube
   env:
   - name: BUILD_WITH_CONTAINER
     value: "0"
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   modifiers:
   - presubmit_optional
   - presubmit_skipped
@@ -2970,6 +2993,7 @@ jobs:
   - gocache
   - kind
   - tracing
+  - ecr
   resources: multicluster
   resources_presets:
     dedicated:
@@ -3003,6 +3027,8 @@ jobs:
 - command:
   - entrypoint
   - prow/integ-suite-kind.sh
+  - --node-image
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
   - test.integration.kube.environment
   env:
   - name: BUILD_WITH_CONTAINER
@@ -3011,7 +3037,7 @@ jobs:
     value: "true"
   - name: IP_FAMILIES
     value: IPv6
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: integ-ipv6
   node_selector:
     testing: test-pool
@@ -3202,6 +3228,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources_presets:
     dedicated:
       limits:
@@ -3232,6 +3259,8 @@ jobs:
 - command:
   - entrypoint
   - prow/integ-suite-kind.sh
+  - --node-image
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
   - test.integration.kube.environment
   env:
   - name: BUILD_WITH_CONTAINER
@@ -3240,7 +3269,7 @@ jobs:
     value: "true"
   - name: IP_FAMILIES
     value: IPv4,IPv6
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: integ-ds
   node_selector:
     testing: test-pool
@@ -3431,6 +3460,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources_presets:
     dedicated:
       limits:
@@ -3463,11 +3493,13 @@ jobs:
   command:
   - entrypoint
   - prow/integ-suite-kind.sh
+  - --node-image
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
   - test.integration.kube.environment
   env:
   - name: BUILD_WITH_CONTAINER
     value: "0"
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: integ-basic
   node_selector:
     testing: test-pool
@@ -3658,6 +3690,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources_presets:
     dedicated:
       limits:
@@ -3688,11 +3721,13 @@ jobs:
 - command:
   - entrypoint
   - prow/integ-suite-kind.sh
+  - --node-image
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
   - test.integration.pilot.kube
   env:
   - name: BUILD_WITH_CONTAINER
     value: "0"
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: integ-pilot
   node_selector:
     testing: test-pool
@@ -3883,6 +3918,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources_presets:
     dedicated:
       limits:
@@ -3913,13 +3949,15 @@ jobs:
 - command:
   - entrypoint
   - prow/integ-suite-kind.sh
+  - --node-image
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
   - test.integration.pilot.kube
   env:
   - name: BUILD_WITH_CONTAINER
     value: "0"
   - name: GRPC_ECHO_IMAGE
     value: grpctesting/istio_echo_cpp
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: integ-pilot-cpp
   node_selector:
     testing: test-pool
@@ -4110,6 +4148,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources_presets:
     dedicated:
       limits:
@@ -4142,13 +4181,15 @@ jobs:
 - command:
   - entrypoint
   - prow/integ-suite-kind.sh
+  - --node-image
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
   - --topology
   - MULTICLUSTER
   - test.integration.pilot.kube
   env:
   - name: BUILD_WITH_CONTAINER
     value: "0"
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: integ-pilot-multicluster
   node_selector:
     testing: test-pool
@@ -4339,6 +4380,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources: multicluster
   resources_presets:
     dedicated:
@@ -4370,6 +4412,8 @@ jobs:
 - command:
   - entrypoint
   - prow/integ-suite-kind.sh
+  - --node-image
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
   - --topology
   - MULTICLUSTER
   - --topology-config
@@ -4378,7 +4422,7 @@ jobs:
   env:
   - name: BUILD_WITH_CONTAINER
     value: "0"
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   modifiers:
   - presubmit_optional
   name: integ-pilot-filebasedkubeconfig
@@ -4571,6 +4615,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources: multicluster
   resources_presets:
     dedicated:
@@ -4602,6 +4647,8 @@ jobs:
 - command:
   - entrypoint
   - prow/integ-suite-kind.sh
+  - --node-image
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
   - --topology
   - MULTICLUSTER
   - --topology-config
@@ -4612,7 +4659,7 @@ jobs:
     value: "0"
   - name: INTEGRATION_TEST_FLAGS
     value: --istio.test.skipVM
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: integ-pilot-istiodremote
   node_selector:
     testing: test-pool
@@ -4803,6 +4850,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources: multicluster
   resources_presets:
     dedicated:
@@ -4834,6 +4882,8 @@ jobs:
 - command:
   - entrypoint
   - prow/integ-suite-kind.sh
+  - --node-image
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
   - --topology
   - MULTICLUSTER
   - --topology-config
@@ -4844,7 +4894,7 @@ jobs:
     value: "0"
   - name: INTEGRATION_TEST_FLAGS
     value: --istio.test.skipVM
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: integ-pilot-istiodremote-mc
   node_selector:
     testing: test-pool
@@ -5035,6 +5085,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources: multicluster
   resources_presets:
     dedicated:
@@ -5066,13 +5117,15 @@ jobs:
 - command:
   - entrypoint
   - prow/integ-suite-kind.sh
+  - --node-image
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
   - test.integration.kube.agentgateway
   env:
   - name: BUILD_WITH_CONTAINER
     value: "0"
   - name: INTEGRATION_TEST_FLAGS
     value: --istio.test.agentgateway
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   modifiers:
   - presubmit_optional
   name: integ-agentgateway
@@ -5265,6 +5318,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources_presets:
     dedicated:
       limits:
@@ -5295,11 +5349,13 @@ jobs:
 - command:
   - entrypoint
   - prow/integ-suite-kind.sh
+  - --node-image
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
   - test.integration.security.kube
   env:
   - name: BUILD_WITH_CONTAINER
     value: "0"
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: integ-security
   node_selector:
     testing: test-pool
@@ -5490,6 +5546,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources_presets:
     dedicated:
       limits:
@@ -5520,12 +5577,14 @@ jobs:
 - command:
   - entrypoint
   - prow/integ-suite-kind.sh
+  - --node-image
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
   - test.integration-fuzz.security.fuzz.kube
   cron: 0 7 * * *
   env:
   - name: BUILD_WITH_CONTAINER
     value: "0"
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: integ-security-fuzz
   node_selector:
     testing: test-pool
@@ -5716,6 +5775,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources_presets:
     dedicated:
       limits:
@@ -5748,13 +5808,15 @@ jobs:
 - command:
   - entrypoint
   - prow/integ-suite-kind.sh
+  - --node-image
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
   - --topology
   - MULTICLUSTER
   - test.integration.security.kube
   env:
   - name: BUILD_WITH_CONTAINER
     value: "0"
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: integ-security-multicluster
   node_selector:
     testing: test-pool
@@ -5945,6 +6007,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources: multicluster
   resources_presets:
     dedicated:
@@ -5976,6 +6039,8 @@ jobs:
 - command:
   - entrypoint
   - prow/integ-suite-kind.sh
+  - --node-image
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
   - --topology
   - MULTICLUSTER
   - --topology-config
@@ -5986,7 +6051,7 @@ jobs:
     value: "0"
   - name: INTEGRATION_TEST_FLAGS
     value: --istio.test.skipVM
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: integ-security-istiodremote
   node_selector:
     testing: test-pool
@@ -6177,6 +6242,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources: multicluster
   resources_presets:
     dedicated:
@@ -6208,6 +6274,8 @@ jobs:
 - command:
   - entrypoint
   - prow/integ-suite-kind.sh
+  - --node-image
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
   - --kind-config
   - prow/config/ambient-sc.yaml
   - test.integration.ambient.kube
@@ -6216,7 +6284,7 @@ jobs:
     value: "0"
   - name: INTEGRATION_TEST_FLAGS
     value: --istio.test.ambient
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: integ-ambient
   node_selector:
     testing: test-pool
@@ -6407,6 +6475,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources_presets:
     dedicated:
       limits:
@@ -6437,6 +6506,8 @@ jobs:
 - command:
   - entrypoint
   - prow/integ-suite-kind.sh
+  - --node-image
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
   - --kind-config
   - prow/config/ambient-sc.yaml
   - test.integration.ambient.kube
@@ -6445,7 +6516,7 @@ jobs:
     value: "0"
   - name: INTEGRATION_TEST_FLAGS
     value: '--istio.test.ambient --istio.test.nativeNftables '
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   modifiers:
   - presubmit_optional
   name: integ-ambient-nftables
@@ -6638,6 +6709,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources_presets:
     dedicated:
       limits:
@@ -6668,6 +6740,8 @@ jobs:
 - command:
   - entrypoint
   - prow/integ-suite-kind.sh
+  - --node-image
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
   - --kind-config
   - prow/config/ambient-sc.yaml
   - test.integration.ambient.kube
@@ -6677,7 +6751,7 @@ jobs:
   - name: INTEGRATION_TEST_FLAGS
     value: '--istio.test.kube.helm.values=cni.istioOwnedCNIConfig=true --istio.test.ambient.istioOwnedCNIConfig
       --istio.test.ambient '
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   modifiers:
   - presubmit_optional
   name: integ-ambient-owned-cni
@@ -6870,6 +6944,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources_presets:
     dedicated:
       limits:
@@ -6900,6 +6975,8 @@ jobs:
 - command:
   - entrypoint
   - prow/integ-suite-kind.sh
+  - --node-image
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
   - --kind-config
   - prow/config/ambient-sc.yaml
   - test.integration.ambient.kube
@@ -6912,7 +6989,7 @@ jobs:
     value: "true"
   - name: IP_FAMILIES
     value: IPv6
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: integ-ambient-ipv6
   node_selector:
     testing: test-pool
@@ -7103,6 +7180,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources_presets:
     dedicated:
       limits:
@@ -7133,6 +7211,8 @@ jobs:
 - command:
   - entrypoint
   - prow/integ-suite-kind.sh
+  - --node-image
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
   - --kind-config
   - prow/config/ambient-sc.yaml
   - --topology
@@ -7145,8 +7225,9 @@ jobs:
     value: "0"
   - name: INTEGRATION_TEST_FLAGS
     value: --istio.test.ambient --istio.test.ambient.multinetwork
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: integ-ambient-mc
+  resources: multicluster
   node_selector:
     testing: test-pool
   requirement_presets:
@@ -7336,6 +7417,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources_presets:
     dedicated:
       limits:
@@ -7366,6 +7448,8 @@ jobs:
 - command:
   - entrypoint
   - prow/integ-suite-kind.sh
+  - --node-image
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
   - --kind-config
   - prow/config/ambient-sc.yaml
   - test.integration.ambient.kube
@@ -7378,7 +7462,7 @@ jobs:
     value: "true"
   - name: IP_FAMILIES
     value: IPv4,IPv6
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: integ-ambient-dual
   node_selector:
     testing: test-pool
@@ -7569,6 +7653,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources_presets:
     dedicated:
       limits:
@@ -7599,6 +7684,8 @@ jobs:
 - command:
   - entrypoint
   - prow/integ-suite-kind.sh
+  - --node-image
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
   - test.integration.pilot.kube
   env:
   - name: BUILD_WITH_CONTAINER
@@ -7607,7 +7694,7 @@ jobs:
     value: --istio.test.gatewayAPIOnly --istio.test.kube.gatewayClassName=istio-alt
   - name: T
     value: -run="TestGatewayConformance|TestGateway$$|TestHTTPRouteAndGRPCRouteCoexistence|TestInferencePoolMultipleTargetPorts"
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   modifiers:
   - presubmit_optional
   name: integ-gateway-api-only
@@ -7800,6 +7887,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources_presets:
     dedicated:
       limits:
@@ -7830,11 +7918,13 @@ jobs:
 - command:
   - entrypoint
   - prow/integ-suite-kind.sh
+  - --node-image
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
   - test.integration.helm.kube
   env:
   - name: BUILD_WITH_CONTAINER
     value: "0"
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: integ-helm
   node_selector:
     testing: test-pool
@@ -8025,6 +8115,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources_presets:
     dedicated:
       limits:
@@ -8056,7 +8147,7 @@ jobs:
   - entrypoint
   - prow/integ-suite-kind.sh
   - --node-image
-  - registry.istio.io/testing/kind-node:v1.27.8
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.27.8
   - --kind-config
   - prow/config/modern.yaml
   - test.integration.kube
@@ -8065,7 +8156,7 @@ jobs:
     value: "0"
   - name: INTEGRATION_TEST_FLAGS
     value: ' --istio.test.retries=1 '
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: integ-k8s-127
   node_selector:
     testing: test-pool
@@ -8256,6 +8347,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources_presets:
     dedicated:
       limits:
@@ -8290,7 +8382,7 @@ jobs:
   - entrypoint
   - prow/integ-suite-kind.sh
   - --node-image
-  - registry.istio.io/testing/kind-node:v1.28.4
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.28.4
   - --kind-config
   - prow/config/modern.yaml
   - test.integration.kube
@@ -8299,7 +8391,7 @@ jobs:
     value: "0"
   - name: INTEGRATION_TEST_FLAGS
     value: ' --istio.test.retries=1 '
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: integ-k8s-128
   node_selector:
     testing: test-pool
@@ -8490,6 +8582,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources_presets:
     dedicated:
       limits:
@@ -8524,7 +8617,7 @@ jobs:
   - entrypoint
   - prow/integ-suite-kind.sh
   - --node-image
-  - registry.istio.io/testing/kind-node:v1.29.7
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.29.7
   - --kind-config
   - prow/config/modern.yaml
   - test.integration.kube
@@ -8533,7 +8626,7 @@ jobs:
     value: "0"
   - name: INTEGRATION_TEST_FLAGS
     value: ' --istio.test.retries=1 '
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: integ-k8s-129
   node_selector:
     testing: test-pool
@@ -8724,6 +8817,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources_presets:
     dedicated:
       limits:
@@ -8758,7 +8852,7 @@ jobs:
   - entrypoint
   - prow/integ-suite-kind.sh
   - --node-image
-  - registry.istio.io/testing/kind-node:v1.30.3
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.30.3
   - --kind-config
   - prow/config/modern.yaml
   - test.integration.kube
@@ -8767,7 +8861,7 @@ jobs:
     value: "0"
   - name: INTEGRATION_TEST_FLAGS
     value: ' --istio.test.retries=1 '
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: integ-k8s-130
   node_selector:
     testing: test-pool
@@ -8958,6 +9052,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources_presets:
     dedicated:
       limits:
@@ -8992,7 +9087,7 @@ jobs:
   - entrypoint
   - prow/integ-suite-kind.sh
   - --node-image
-  - registry.istio.io/testing/kind-node:v1.31.0
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.31.0
   - --kind-config
   - prow/config/modern.yaml
   - test.integration.kube
@@ -9001,7 +9096,7 @@ jobs:
     value: "0"
   - name: INTEGRATION_TEST_FLAGS
     value: ' --istio.test.retries=1 '
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: integ-k8s-131
   node_selector:
     testing: test-pool
@@ -9192,6 +9287,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources_presets:
     dedicated:
       limits:
@@ -9226,7 +9322,7 @@ jobs:
   - entrypoint
   - prow/integ-suite-kind.sh
   - --node-image
-  - registry.istio.io/testing/kind-node:v1.32.0
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.32.0
   - --kind-config
   - prow/config/modern.yaml
   - test.integration.kube
@@ -9235,7 +9331,7 @@ jobs:
     value: "0"
   - name: INTEGRATION_TEST_FLAGS
     value: ' --istio.test.retries=1 '
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: integ-k8s-132
   node_selector:
     testing: test-pool
@@ -9426,6 +9522,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources_presets:
     dedicated:
       limits:
@@ -9460,7 +9557,7 @@ jobs:
   - entrypoint
   - prow/integ-suite-kind.sh
   - --node-image
-  - registry.istio.io/testing/kind-node:v1.33.1
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.33.1
   - --kind-config
   - prow/config/modern.yaml
   - test.integration.kube
@@ -9469,7 +9566,7 @@ jobs:
     value: "0"
   - name: INTEGRATION_TEST_FLAGS
     value: ' --istio.test.retries=1 '
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: integ-k8s-133
   node_selector:
     testing: test-pool
@@ -9660,6 +9757,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources_presets:
     dedicated:
       limits:
@@ -9694,7 +9792,7 @@ jobs:
   - entrypoint
   - prow/integ-suite-kind.sh
   - --node-image
-  - registry.istio.io/testing/kind-node:v1.34.0
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.34.0
   - --kind-config
   - prow/config/modern.yaml
   - test.integration.kube
@@ -9703,7 +9801,7 @@ jobs:
     value: "0"
   - name: INTEGRATION_TEST_FLAGS
     value: ' --istio.test.retries=1 '
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: integ-k8s-134
   node_selector:
     testing: test-pool
@@ -9894,6 +9992,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources_presets:
     dedicated:
       limits:
@@ -9928,7 +10027,7 @@ jobs:
   - entrypoint
   - prow/integ-suite-kind.sh
   - --node-image
-  - registry.istio.io/testing/kind-node:v1.35.0
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
   - --kind-config
   - prow/config/modern.yaml
   - test.integration.kube
@@ -9937,7 +10036,7 @@ jobs:
     value: "0"
   - name: INTEGRATION_TEST_FLAGS
     value: ' --istio.test.retries=1 '
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: integ-k8s-135
   node_selector:
     testing: test-pool
@@ -10128,6 +10227,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources_presets:
     dedicated:
       limits:
@@ -10162,7 +10262,7 @@ jobs:
   - entrypoint
   - prow/integ-suite-kind.sh
   - --node-image
-  - registry.istio.io/testing/kind-node:v1.36.0
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.36.0
   - --kind-config
   - prow/config/modern.yaml
   - test.integration.kube
@@ -10171,7 +10271,7 @@ jobs:
     value: "0"
   - name: INTEGRATION_TEST_FLAGS
     value: ' --istio.test.retries=1 '
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: integ-k8s-136
   node_selector:
     testing: test-pool
@@ -10362,6 +10462,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources_presets:
     dedicated:
       limits:
@@ -10395,6 +10496,8 @@ jobs:
 - command:
   - entrypoint
   - prow/integ-suite-kind.sh
+  - --node-image
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
   - test.integration.kube
   env:
   - name: BUILD_WITH_CONTAINER
@@ -10403,7 +10506,7 @@ jobs:
     value: -flaky
   - name: INTEGRATION_TEST_FLAGS
     value: ' --istio.test.retries=1 --istio.test.istio.enableCNI=true '
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: integ-cni
   node_selector:
     testing: test-pool
@@ -10594,6 +10697,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources_presets:
     dedicated:
       limits:
@@ -10627,13 +10731,15 @@ jobs:
 - command:
   - entrypoint
   - prow/integ-suite-kind.sh
+  - --node-image
+  - 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/kind-node:v1.35.0
   - test.integration.kube
   env:
   - name: BUILD_WITH_CONTAINER
     value: "0"
   - name: INTEGRATION_TEST_FLAGS
     value: ' --istio.test.istio.operatorOptions=values.pilot.env.UNSAFE_PILOT_ENABLE_RUNTIME_ASSERTIONS=true '
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   modifiers:
   - presubmit_optional
   - presubmit_skipped
@@ -10827,6 +10933,7 @@ jobs:
   - cache
   - gocache
   - kind
+  - ecr
   resources_presets:
     dedicated:
       limits:
@@ -10861,7 +10968,7 @@ jobs:
   env:
   - name: BUILD_WITH_CONTAINER
     value: "0"
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: lint
   node_selector:
     testing: test-pool
@@ -11088,7 +11195,7 @@ jobs:
   env:
   - name: BUILD_WITH_CONTAINER
     value: "0"
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   modifiers:
   - presubmit_optional
   - presubmit_skipped
@@ -11317,7 +11424,7 @@ jobs:
   env:
   - name: BUILD_WITH_CONTAINER
     value: "0"
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: gencheck
   node_selector:
     testing: test-pool
@@ -11519,21 +11626,27 @@ jobs:
         cpu: "5"
         memory: 24Gi
       requests:
-        cpu: "5"
+        cpu: "3"
         memory: 3Gi
     lint:
       limits:
         memory: 24Gi
       requests:
-        cpu: "3"
+        cpu: "2250m"
         memory: 16Gi
     multicluster:
       limits:
         cpu: "8"
         memory: 24Gi
       requests:
-        cpu: "8"
-        memory: 3Gi
+        cpu: "5"
+        memory: 5Gi
+    unit:
+      limits:
+        memory: 24Gi
+      requests:
+        cpu: "11250m"
+        memory: 6Gi
   types:
   - presubmit
 - command:
@@ -11544,7 +11657,7 @@ jobs:
   env:
   - name: BUILD_WITH_CONTAINER
     value: "0"
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: release-notes
   node_selector:
     testing: test-pool
@@ -11774,7 +11887,7 @@ jobs:
     value: master
   - name: ALWAYS_GENERATE_BASE_IMAGE
     value: "true"
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: build-base-images
   node_selector:
     testing: test-pool
@@ -12005,7 +12118,7 @@ jobs:
   env:
   - name: BUILD_WITH_CONTAINER
     value: "0"
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: bookinfo-build
   node_selector:
     testing: test-pool
@@ -12234,7 +12347,7 @@ jobs:
   env:
   - name: BUILD_WITH_CONTAINER
     value: "0"
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: macbuildcheck
   node_selector:
     testing: test-pool
@@ -12461,7 +12574,7 @@ jobs:
   env:
   - name: BUILD_WITH_CONTAINER
     value: "0"
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   name: windowsbuildcheck
   node_selector:
     testing: test-pool
@@ -12695,7 +12808,7 @@ jobs:
     value: "0"
   - name: AUTOMATOR_ORG
     value: istio
-  image: registry.istio.io/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
+  image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:release-1.31-b191766806f5d2982fab99ee081c7e519d436019
   interval: 24h
   name: update-ztunnel
   node_selector:
@@ -13120,18 +13233,24 @@ resources_presets:
       cpu: "5"
       memory: 24Gi
     requests:
-      cpu: "5"
+      cpu: "3"
       memory: 3Gi
   lint:
     limits:
       memory: 24Gi
     requests:
-      cpu: "3"
+      cpu: "2250m"
       memory: 16Gi
   multicluster:
     limits:
       cpu: "8"
       memory: 24Gi
     requests:
-      cpu: "8"
-      memory: 3Gi
+      cpu: "5"
+      memory: 5Gi
+  unit:
+    limits:
+      memory: 24Gi
+    requests:
+      cpu: "11250m"
+      memory: 6Gi
