@@ -28,7 +28,7 @@ postsubmits:
           value: /var/run/ci/docker
         - name: GCP_SECRETS
           value: '[{"secret":"cf_r2_istio-build_credentials","project":"istio-testing","env":"CF_CREDENTIALS"},{"secret":"testing_ghcr_istio","file":"/var/run/ci/docker/config.json"}]'
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -80,7 +80,7 @@ presubmits:
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -128,7 +128,7 @@ presubmits:
           value: "0"
         - name: GOMAXPROCS
           value: "5"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -193,7 +193,7 @@ presubmits:
           value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -252,7 +252,7 @@ presubmits:
           value: "0"
         - name: GOMAXPROCS
           value: "5"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -300,7 +300,7 @@ presubmits:
           value: "0"
         - name: GOMAXPROCS
           value: "5"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -355,7 +355,7 @@ presubmits:
           value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -425,7 +425,7 @@ presubmits:
           value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -497,7 +497,7 @@ presubmits:
           value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -568,7 +568,7 @@ presubmits:
           value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -640,7 +640,7 @@ presubmits:
           value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -712,7 +712,7 @@ presubmits:
           value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -780,7 +780,7 @@ presubmits:
           value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -850,7 +850,7 @@ presubmits:
           value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -918,7 +918,7 @@ presubmits:
           value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -986,7 +986,7 @@ presubmits:
           value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -1049,7 +1049,7 @@ presubmits:
           value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -1119,7 +1119,7 @@ presubmits:
           value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -1184,7 +1184,7 @@ presubmits:
           value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -1251,7 +1251,7 @@ presubmits:
           value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -1319,7 +1319,7 @@ presubmits:
           value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -1383,7 +1383,7 @@ presubmits:
           value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -1450,7 +1450,7 @@ presubmits:
           value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -1516,7 +1516,7 @@ presubmits:
           value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -1585,7 +1585,7 @@ presubmits:
           value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -1655,7 +1655,7 @@ presubmits:
           value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -1725,7 +1725,7 @@ presubmits:
           value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -1791,7 +1791,7 @@ presubmits:
           value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -1855,7 +1855,7 @@ presubmits:
           value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -1924,7 +1924,7 @@ presubmits:
           value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -1990,7 +1990,7 @@ presubmits:
           value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -2054,7 +2054,7 @@ presubmits:
           value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -2119,7 +2119,7 @@ presubmits:
           value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -2189,7 +2189,7 @@ presubmits:
           value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -2255,7 +2255,7 @@ presubmits:
           value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "8"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -2318,7 +2318,7 @@ presubmits:
           value: 678412441677.dkr.ecr.us-west-2.amazonaws.com
         - name: GOMAXPROCS
           value: "5"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -2374,7 +2374,7 @@ presubmits:
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -2422,7 +2422,7 @@ presubmits:
           value: "0"
         - name: GOMAXPROCS
           value: "5"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -2467,7 +2467,7 @@ presubmits:
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -2520,7 +2520,7 @@ presubmits:
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -2574,7 +2574,7 @@ presubmits:
         env:
         - name: BUILD_WITH_CONTAINER
           value: "0"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
@@ -2622,7 +2622,7 @@ presubmits:
           value: "0"
         - name: GOMAXPROCS
           value: "5"
-        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-7f5d77ade26da4b04ed42f353d9c26fbb3a4e7f1
+        image: 678412441677.dkr.ecr.us-west-2.amazonaws.com/ghcr/istio/testing/build-tools:master-80657d56e324b5d8b4a74806bf0979e4b89e99a5
         name: ""
         resources:
           limits:
